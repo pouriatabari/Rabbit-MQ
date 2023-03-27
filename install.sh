@@ -75,4 +75,7 @@ EOF
 yum update -y
 yum install socat logrotate  epel-release libcrypto.so.1.1 https://rpmfind.net/linux/openmandriva/cooker/repository/x86_64/main/release/lib64crypto1.1-1.1.1m-1-omv4050.x86_64.rpm -y
 yum install --repo rabbitmq_erlang --repo rabbitmq_server erlang rabbitmq-server -y
- 
+
+rabbitmqctl add_user manager manager
+rabbitmqctl set_user_tags manager administrator
+rabbitmqctl set_permissions -p / manager ".*" ".*" ".*"
