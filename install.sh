@@ -79,3 +79,6 @@ yum install --repo rabbitmq_erlang --repo rabbitmq_server erlang rabbitmq-server
 rabbitmqctl add_user manager manager
 rabbitmqctl set_user_tags manager administrator
 rabbitmqctl set_permissions -p / manager ".*" ".*" ".*"
+rabbitmq-plugins enable rabbitmq_management
+firewall-cmd --add-port=15672/tcp --permanent
+firewall-cmd --reload
